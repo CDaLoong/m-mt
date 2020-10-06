@@ -30,3 +30,27 @@
         <i class="el-icon-delete"></i>
         <el-button type="primary" icon="el-icon-search">搜索</el-button>
      ```
+
+3. 学会配置eslint插件自动修复问题:
+   npm i eslint-plugin-vuefix
+   package.json修改为：
+   ```js
+   "lint": "eslint --fix --ext .js,.vue src"
+   ```
+   .eslintrc.js文件中配置：
+   ```js
+      // required to lint *.vue files eslint-plugin-vuefix 
+      plugins: [
+         'vuefix'
+      ],
+   ```
+   终端运行npm run lint修改代码样式
+   终端运行npm run dev就不会报ESLint错误了
+
+4. 复习回顾router配置路由：
+   配置默认路由：redirect: '/index',
+   配置子路由：children: [{
+                 path: '/',
+                 name: 'index',
+                 component: Index,
+               }]

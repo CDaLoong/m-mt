@@ -54,13 +54,13 @@
         <router-link to="/">美团规则</router-link>
         <dl>
           <dd>
-            <router-linl to="/">规则中心</router-linl>
+            <router-link to="/">规则中心</router-link>
           </dd>
           <dd>
-            <router-linl to="/">规则目录</router-linl>
+            <router-link to="/">规则目录</router-link>
           </dd>
           <dd>
-            <router-linl to="/">规则评议院</router-linl>
+            <router-link to="/">规则评议院</router-link>
           </dd>
         </dl>
       </li>

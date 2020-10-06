@@ -15,9 +15,9 @@ module.exports = {
     // https://github.com/standard/standard/blob/master/docs/RULES-en.md
     'standard'
   ],
-  // required to lint *.vue files
+  // required to lint *.vue files eslint-plugin-vuefix 
   plugins: [
-    'vue'
+    'vuefix'
   ],
   // add your custom rules here
   rules: {
