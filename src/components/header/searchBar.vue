@@ -41,21 +41,24 @@ export default {
     }
   },
   computed: {
-    isHotPlace: function () {return this.isFocus && !this.searchWord},
-    isSearchList: function () {return this.isFocus && this.searchWord},
+    isHotPlace () {
+        return !this.searchWord && this.isFocus
+    },
+    isSearchList () {
+        return this.searchWord && this.isFocus
+    },
   },
   methods: {
     focus(){
       this.isFocus = true;
     },
     blur(){
-      let This = this;
+      var self = this;
       setTimeout( () => {
-          This.isFocus = false;
-        },600);
+          self.isFocus = false;
+        },200);
     }
   }
-
 }
 </script>
 

@@ -54,3 +54,13 @@
                  name: 'index',
                  component: Index,
                }]
+
+5. 学会使用element组件配置轮播图（也太好用了吧），去官网挑选一个喜欢的轮播图组件，把HTML代码copy过来，自己写下样式，然后配置数据就好了
+   ```html
+   <el-carousel height="240px">
+      <el-carousel-item v-for="(item, index) in imgList" :key="index">
+        <img :src="item.img" :alt="item.alt">
+      </el-carousel-item>
+    </el-carousel>
+   ```
+
