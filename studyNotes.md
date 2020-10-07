@@ -64,3 +64,9 @@
     </el-carousel>
    ```
 
+6. 复习回顾prop父传子数据组件:
+   父组件数据```<container :nav="iStyle" />```对子组件传输
+   iStyle为数据名
+   nav为子组件props接收数据名```props: ["nav"]```
+   之后在子组件就可以自由使用父组件iStyle中的数据了```v-for="(item, index) in nav.list"```
+
