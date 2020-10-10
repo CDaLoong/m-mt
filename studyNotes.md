@@ -102,5 +102,12 @@
       
       **除了 el 之外，其它参数都应该是只读的，切勿进行修改。如果需要在钩子之间共享数据，建议通过元素的 dataset 来进行。**
 
+8. 复习回顾vuex
+
+   下载vuex后新建store.js文件
+   引入```import Vue from 'vue'; import Vuex from 'vuex'```
+   把共享的数据放在state对象中，在mutation对象中写修改state中的数据函数，在actions中调用mutation内的函数修改state中的数据或使用异步函数修改数据
+   export default new Vuex.Store({})导出共享数据
+
 
 

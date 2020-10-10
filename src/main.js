@@ -6,6 +6,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/assets/css/main.css'
 import App from './App'
+import store from './store.js'
 // import { directive } from 'vue/types/umd'
 
 Vue.use(ElementUI)
@@ -22,6 +23,7 @@ Vue.directive('document-click', {
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
