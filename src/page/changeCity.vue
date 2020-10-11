@@ -19,13 +19,21 @@
 import Province from '@/components/changeCity/province'
 import hot from '@/components/changeCity/hot'
 import Categroy from '@/components/changeCity/categroy'
-
+import api from '@/api/index.js'
 export default {
     data() {
         return {
-            hotList: ["哈尔滨", "佳木斯", "牡丹江", "鹤岗"],
-            rencentList: ["哈尔滨", "佳木斯", "牡丹江"],
+            hotList: [],
+            rencentList: [],
         }
+    },
+    created() {
+        api.getHotCity().then(res => {
+            this.hotList = res.data.data.map((item) => item.name);
+        });
+        api.getRecentCity().then(res => {
+            this.rencentList = res.data.data.map((item) => item.name)
+        })
     },
     components: {
         Province,

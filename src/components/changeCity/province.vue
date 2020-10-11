@@ -8,6 +8,7 @@
       :showWrapperActive="provinceActive"
       @change_active="changeProvinceActive"
       @change="changeProvince"
+      className="province"
     />
     <m-select
       :list="cityList"
@@ -16,6 +17,8 @@
       :showWrapperActive="cityActive"
       @change_active="changeCityActive"
       @change="changeCity"
+      :disabled="cityDisabled"
+      className="city"
     />
     <span>直接搜索:</span>
     <el-select
@@ -40,22 +43,34 @@
 
 <script>
 import MSelect from "@/components/changeCity/select";
+import api from '@/api/index.js'
 export default {
   data() {
     return {
-      provinceList: ["山东", "河南", "甘肃"],
+      provinceList: [],
       province: "省份",
-      cityList: ["哈尔滨", "佳木斯", "牡丹江", "鹤岗"],
+      cityList: [],
       city: "城市",
       provinceActive: false,
       cityActive: false,
       searchList: ["哈尔滨", "佳木斯", "牡丹江", "鹤岗"],
-      searchWord: '',
+      searchWord: "",
       loading: false,
+      cityDisabled: true,
+
     };
   },
   components: {
     MSelect,
+  },
+  created() {
+    api.getProvinceList().then((res) => {
+      this.provinceList = res.data.data.map((item) => {
+        item.name = item.provinceName;
+        return item;
+      });
+      console.log(this.provinceList);
+    });
   },
   methods: {
     changeProvinceActive(flag) {
@@ -72,18 +87,20 @@ export default {
         this.provinceActive = false;
       }
     },
-    changeProvince(value) {
-      this.province = value;
-      // this.provinceActive = false;
+    changeProvince(item) {
+      this.province = item.name;
+      this.cityDisabled = false;
+      this.cityList = item.cityInfoList;
     },
-    changeCity(value) {
-      this.city = value;
-      // this.cityActive = false;
+    changeCity(item) {
+      this.city = item.name;
+      this.$store.dispatch("setPosition", item);
+      this.$router.push({ name: "index" });
     },
     remoteMethod(val) {
-        // console.log(e)
-        //请求后端接口
-    }
+      // console.log(e)
+      //请求后端接口
+    },
   },
 };
 </script>

@@ -41,11 +41,11 @@
           </span>
       </p>
       <ul class="deal-items">  
-          <li v-for="(item, index) in meta.deal_items.slice(0, 2)" :key="index" class="items">
+          <li v-for="(item, index) in meta.dealItems.slice(0, 2)" :key="index" class="items">
               <p class="deal-title">{{ item.title }}</p>
               <p>
               <span class="deal-price">￥{{ item.price }}</span>
-              <span class="deal-old-price">门市价￥{{ item.counter_price }}</span>
+              <span class="deal-old-price">门市价￥{{ item.counterPrice }}</span>
               <span class="deal-sales">已售{{ item.saleNum  }}</span>
               </p>
           </li>
